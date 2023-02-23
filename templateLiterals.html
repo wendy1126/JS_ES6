@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+
+        // template literals(strings) : 문자열을 다르게 제작할 수 있는 방법
+        // 백틱(backquote)문자열의 장점
+        // 1. 엔터키 가능
+        // 2. 중간중간 변수 넣기 쉬움
+
+        var 백틱엔터키예시 = `손흥민은 
+        정말 최고야`;
+
+        var 변수 = '손흥민'
+
+        var 예전버전합치기1 = '안녕하세요 저는 '+ 변수;
+        var 예전버전합치기2 = '안녕하세요' + 변수 + '저는';
+
+        var 백틱버전합치기1 = `안녕하세요 저는 ${변수}`;
+        var 백틱버전합치기2 = `안녕하세요 ${변수} 입니다`;
+
+        // tagged literal : backquote 문자열 + 함수 같이 쓸 수 있음
+        // 쓰는 이유 : `문자`를 해체분석할 수 있음(단어 순서 변경, 단어 제거, ${변수}위치 이동 쉽게 가능)
+
+        function 함수(){
+            return 10
+        }
+
+        console.log(함수`안녕하세요 ${변수} 입니다`); // 10
+
+        function 해체분석기(문자들, 변수들1, 변수들2){
+            console.log(문자들); // ['안녕하세요 ', ' 입니다', raw: Array(2)]
+            console.log(변수들1); // 손흥민
+            console.log(변수들2); // 손흥민, 변수 여러개일 경우 파라미터 추가 가능
+        }
+
+        해체분석기`안녕하세요 ${변수} 입니다 ${변수}`;
+
+        // 순서 변경하는 방법
+        function 해체분석기(문자들, 변수들1, 변수들2){
+            console.log(문자들[1] + 변수들1 + 문자들[0]);
+        }
+        해체분석기`안녕하세요 ${변수} 입니다 ${변수}`;
+        
+
+
+
+    </script>
+</body>
+</html>
