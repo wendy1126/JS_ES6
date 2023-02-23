@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        // 🍔 변수의 Hoisting 현상
+        // var 나이 = 30; 이라고 적어도
+        // 자바스크립트는 var 나이;(변수의 선언)를 변수 범위 맨 위로 끌고오고
+        // 나이=30;을 밑에서 해석함
+        // function 함수(){} : 함수선언도 호이스팅 현상 O
+
+        console.log(나이);  // 아직 변수 선언안했는데 출력하면 error:변수 '나이' is not defined 뜨는데 콘솔창에는 undefined(변수선언만하고 할당안했을 때 나오는 자료형)뜸
+        var 나이 = 30;
+        console.log(나이); // 30
+
+
+
+        // 🍕 변수 동시에 여러개 만들기(var, let, const 다 됨)
+        // 선언만 먼저 하거나
+        var 나이, 이름, 성별;
+        // 선언, 할당 같이 하거나
+        var 나이=20, 이름='kim', 성별='여';
+
+
+
+        // 🍟 전역변수 : 모든 곳에서 쓸 수 있는 변수 ↔ 지역변수
+        // 1. 가장 바깥 쪽에 만들어 놓으면 참조해서 쓸 수 있음
+        // 2. window로 전역변수 만들기(function(){}도 가능), 권장방법
+        window.이름 = '김';
+        console.log(이름);
+
+
+        // 예제
+        if(true){
+            let a = 1;
+            var b = 2;
+            if(true){
+                let b = 3;
+                console.log(b); // 3
+            }
+            console.log(b); //2
+        }
+
+
+
+
+    </script>
+    
+</body>
+</html>
