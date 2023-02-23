@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+        // 변수 = 자료 임시저장공간
+        var 이름 = 'kim';
+
+        // 변수 키워드 : var, let, const
+        // 🌷 var : 재선언O, 재할당O, 범위=function
+        // 🌷 let : 재선언X, 재할당O, 범위={}
+        // 🌷 const : 재선언X, 재할당X, 범위={}
+
+        // 선언, 할당, 범위 기준
+        // 🌷 var : 재선언O, 재할당O, 범위=function
+        var 이름 = 'kim';
+        var 이름 = 'park'; // 재선언O
+        이름 = 'lee'; // 재할당O
+
+        // 🌷 let : 재선언X, 재할당O, 범위={}
+        let 나이 = 20;
+        // let 나이 = 30; // 재선언X
+        나이 = 30; // 재할당O
+
+        // 🌷 const : 재선언X, 재할당X, 범위={}
+        const 학력 = '대졸';
+        // const 학력 = '고졸'; // 재선언X
+        // 학력 = 중졸; // 재할당X
+
+        // const로 오브젝트 만들었을 때, 오브젝트 내부 값 변경해도 에러안남
+        // 변수값을 변경했을 뿐이지, 변수값을 재 할당한 것이 아님
+        const 사람 = { 이름 : 'kim' }
+        // 사람.이름 = 'park';
+
+        // 수정불가능한 오브젝트를 만들고 싶으면?
+        Object.freeze(사람);
+        사람.이름 = 'park'; // console에서도 {이름:'kim'}으로 출력됨
+
+
+
+    </script>
+</body>
+</html>
