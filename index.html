@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //최상단에 use strict 쓰면 자바스크립트 엄격하게 사용 가능(strict mode)
+        'use strict';
+
+        //this 뜻 
+        //🍎 1. {Window}(그냥 쓰거나 일반 함수 안에서 쓸 때)
+        //+ strict mode에서 함수안에서 this쓰면 undefined 출력
+        console.log(this);
+
+        function 함수(){
+            console.log(this);
+        }
+        함수(); //window.함수(); 와 동일한 결과 나옴
+
+        //🍎 2. 오브젝트 내 함수(메소드)안에서 쓰면, 그 함수를 가지고 있는 오브젝트를 뜻함(자신을 포함하고있는 오브젝트)
+        var 오브젝트 = {
+            data : 'kim',
+            함수 : function(){
+                console.log(this);
+            }
+        }
+        오브젝트.함수();
+
+        var 오브젝트2 = {
+            data : {
+                함수 : function(){
+                    console.log(this);
+                }
+            }
+        }
+        오브젝트2.data.함수(); //최상위 요소가 아니라 오브젝트.data가 나옴
+
+        //arrow function 특징 : this값을 함수 밖에 있던거 그대로 씀
+        var 오브젝트3 = {
+            data : {
+                함수 : ()=> { //오브젝트 안에 함수 넣을 때 신문법 -> 함수(){} 이렇게 써도됨
+                    console.log(this);
+                }
+            }
+        }
+        오브젝트3.data.함수();
+
+
+
+    </script>
+</body>
+</html>
