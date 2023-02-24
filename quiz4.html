@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // spread 문제, 출력 결과는?
+        var a = [1, 2, 3];
+        var b = '김밥';
+        var c = [...b, ...a];
+        console.log(c); // ['김','밥',1,2,3]
+
+
+        // spread 문제, 출력 결과는?
+        var a = [1, 2, 3];
+        var b = ['you', 'are'];
+        var c = function (a, b) {
+            console.log([[...a], ...[...b]][1]) //( [[1,2,3],'you','are'][1] )
+        }
+        c(a, b); // you
+
+
+        // default 문제, 출력 결과는?
+        function 함수(a = 5, b = a * 2) {
+            console.log(a + b); 
+            return 10
+        }
+        함수(3); // 9
+
+
+        // default 문제, 출력 결과는?
+        function 함수(a = 5, b = a * 2) {
+            console.log(a + b);
+        }
+        함수(undefined, undefined); // 15, 파라미터에 아무것도 안집어넣었다고 판단해서 default 파라미터 발동중
+
+
+        // array를 만들어주는 함수 제작. 파라미터로 자료들을 입력하면 그걸 그대로 array를 만들어주는 함수 제작
+        function 어레이(...rest) {
+            return rest
+        }
+
+        var newArray = 어레이(1, 2, 3, 4, 5);
+        console.log(newArray);
+
+
+        // 최댓값 구하기
+        // console.log(Math.max(5,6,4,3)); Math.max 예시
+        var numbers = [2,3,4,5,1,3,2,5,5,4,6,7];
+        console.log(Math.max(...numbers));
+
+
+        // 글자를 알파벳순으로 정렬해주는 함수
+        // array 내의 데이터를 알파벳순으로 정렬하고 싶을 때 sort()라는 array 내장함수를 붙여 사용합니다. (array에만 적용가능)
+        // array가 아니라 문자열에도 적용할 수 있는 알파벳순 정렬함수
+        console.log(['b','c','a'].sort()); //['a','b','c']
+
+        function 정렬(글자){
+            console.log([...글자].sort().join()); //글자를 array처럼 만들어서 sort()함수 사용, + array내의 자료를 전부 붙여서 문자로 만들고 싶으면 join()함수 사용(혹은 spread 사용해서 (...[...글자].sort()) 와 같이 작성 )
+        }
+        정렬('bear') // a b e r
+
+
+
+        // 데이터마이닝 기능 : 알파벳들의 출현 갯수를 세어주는 함수
+        글자세기('aacbbb'); 
+        
+        function 글자세기(글자){
+            console.log([...글자]);
+            
+            var 결과 = {};
+            [...글자].forEach(function(a){ // 글자에 forEach 반복문 돌리고 싶으면 [...글자] 처럼 array화 해주고 반복문 사용
+                // 만약 결과에 a가 있으면 +1해주고, 없으면 a:1 집어넣으세요
+                if(결과[a]>0){
+                    결과[a]=결과[a]+1;
+                }else{
+                    결과[a]=1;
+                }
+            })
+            console.log(결과); // {a:2,c:1,b:3}
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
