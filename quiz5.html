@@ -78,73 +78,46 @@
         // remove3()함수는 어떻게, 어디에 만들어야 모든 array에 쓸 수 있을까요?
 
         Array.prototype.remove3 = function(){
-  for (var i = 0; i < this.length; i++) {
-    if ( this[i] === 3 ) {
-      this.splice(i,1);
-    }
-  }
-};
+            for (var i = 0; i < this.length; i++) {
+                if ( this[i] === 3 ) {
+                this.splice(i,1);
+                }
+            }
+            };
 
-var arr = [1,2,3,4];
-arr.remove3();
+            var arr = [1,2,3,4];
+            arr.remove3();
 
-console.log(arr); //[1,2,4]
+            console.log(arr); //[1,2,4]
 
         // 일단 모든 array에 pop(), sort(), push() 이런 함수를 붙일 수 있는 이유 혹시 기억나십니까.
-
         // 모든 array 자료형은 부모가 Array로 부터 new Array() 이런 식으로 만들어지기 때문에 
-
-        // Array라는 부모의 prototype에 있는 함수들을 자유롭게 가져다 쓸 수 있어서 그렇습니다. 
-
-        
-
-        
-
+        // Array라는 부모의 prototype에 있는 함수들을 자유롭게 가져다 쓸 수 있어서 그렇습니다.      
         // 그럼 우리도 Array의 prototype에 remove3라는 함수를 하나 추가해주면 되는게 아닐까요?
 
-        // 맞습니다.
         // Array.prototype.remove3 = function(){
         //   this 에서 3을 찾아서 제거해주세요
         // }
 
         // 이렇게 코드를 짜면 되겠군요.
-
         // 위의 코드에서의 this라는 키워드는 현재 remove3이라는 함수를 작동시키는 object (여기서는 array) 라는 뜻입니다.
-
         // 그럼 this라는 array에서 3을 제거하는 코드는 어떻게 짭니까?
-
         // 100가지 방법이 있는게 그 중 하나를 쓴다면 ..
-
         // 저는 this라는 array 안에 있는 데이터를 하나하나 출력하면서 3과 비교하려고 반복문을 썼습니다. 
 
         // 그냥 어려운거 아니고 remove3()함수는 
-
         // 1. this라는 array의 길이만큼 반복문을 돌리는데, 돌리는 과정에서 this[i] 라고 쓰면서 this 안에 있는 모든 데이터를 출력해봅니다. 
-
         // 2. 만약에 this[i]가 3이면 
-
         // 3. this라는 array에서 i번째 자료를 제거해주세요 
-
         // 라고 썼습니다. (splice 라는 함수는 array안에 뭘 제거할 때 가끔씁니다. 구글 검색하시면 나와염)
 
-        
-
-        
-
         // 이렇게 성공적으로 remove3() 함수를 제작했군요. 짝짝짝
-
         // remove3을 만들었는데 remove(3) 이런 식으로 원하는 데이터를 집어넣으면 제거해주는 함수로
-
-        // 업그레이드도 한번 해보시길 바랍니다. 
-
-        
+        // 업그레이드도 한번 해보시길 바랍니다.        
 
         
-
         // 실은 find나 filter나 비슷한 내장함수가 있긴 합니다만 
-
         // 내가 자주 사용할법한 내장함수들을 많이 만들어두시면 더 효율적인 코딩생활이 가능합니다. 
-
         // 혹은 이런 함수들 모아서 나중에 자바스크립트 라이브러리화 해서 사용해도 괜찮을 것 같습니다. 
  
 
