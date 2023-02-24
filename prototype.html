@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // prototype : 상속을 구현할 수 있는 또 하나의 문법(다른하나는 constructor)
+        // prototype은 유전자, 직역하면 '원형'
+        // prototype에 값을 추가하면 모든 자식들이 물려받기 가능
+        function 기계(이름) {
+            this.name = 이름; 
+            this.age = 15; 
+            this.sayHi = function () {
+                console.log('하이' + this.name + '입니다.');
+            }
+        }
+
+        기계.prototype.gender = '남'; // 기계의 prototype에 gender라는 key와 '남' 이라는 value 값을 추가
+
+        var 학생1 = new 기계('kim');
+        console.log(학생1.gender); // 남
+
+        // prototype의 동작원리1 : 내가 가진 키값이 없으면 부모 유전자에서 검사해서 부모에 있다면 추출
+        // prototype의 동작원리2 : 내장함수는 어떻게 동작하는가? 부모 유전자가 가지고 있기 때문에
+
+
+        // prototype의 특징
+        // 1. 함수에만 몰래 생성됨
+        // 2. 내 부모 유전자(부모의 prototype)를 검사하고 싶다면 __proto__ (ex.학생1.__proto__)
+        // 3. __proto__를 이용해 부모님 강제 등록하기
+
+        var 부모 = { name : 'kim' }
+        var 자식 = {};
+        자식.__proto__ = 부모;
+        console.log(자식.name); // kim
+
+
+
+
+
+    </script>
+</body>
+</html>
