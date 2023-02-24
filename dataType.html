@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // primitive/reference data type
+
+        // 그냥 문자와 숫자는 primitive data type : 변수에 값이 그대로 저장됨
+        // Array, Object는 변수에 값이 그대로 저장 안됨. 변수에 reference가 저장됨(reference : [값,값1,값2]가 저쪽에 있어요 하는 화살표)
+        // 그래서 reference data type은 함부로 복사하면 안됨(복사하고싶으면 object복사기계 만들어서해야함(?))
+
+        var 이름1='김';
+        var 이름2=이름1;
+        console.log(이름2); // 김
+        이름1='박';
+        console.log(이름1); // 박
+        console.log(이름2); // 김
+
+        var 이름3={name:'김'}
+        var 이름4=이름3;
+        console.log(이름4.name); // 김
+        이름3.name='박';
+        console.log(이름3); // {name:'박'}
+        console.log(이름4); // {name:'박'}, 이름4는 데이터 변경한 적 없는데 자동으로 바꿔져있음 = reference date type 이라서;
+
+        // reference data type 다루기 예시1
+        var 화살표1 = {name:'김'};
+        var 화살표2 = {name:'김'}; 
+        // 화살표1 === 화살표2 false
+
+        // reference data type 다루기 예시2
+        // 오브젝트 변경해주는 함수
+        function 변경(obj){
+            obj.name = 'Park';
+        }
+        // 변경(화살표1);
+        // console.log(화살표1); // {name: 'Park'}
+
+        // 오브젝트를 재할당해주는 함수
+        function 변경2(obj){
+            obj = {name:'Park'}
+        }
+        변경2(화살표1);
+        console.log(화살표1); //{name: '김'}, 재할당 실패.. 안바뀜. 이유 : 같은 화살표를 가지고있으므로, 재할당하면 새 화살표가 생기는거라 새롭게 생성하는거임
+        // 파라미터는 변수를 만드는 것이고, 변수생성&할당과 같음. 재할당아니고 그냥 생성임
+
+
+
+
+
+    </script>
+</body>
+
+</html>
