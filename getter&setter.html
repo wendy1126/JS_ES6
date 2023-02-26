@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+        // getter(get함수들) 특징
+        // 1. return이 있어야함
+        // 2. 파라미터 있으면 안됨
+        
+        // setter(set 함수들) 특징
+        // 1. 파라미터가 1개 있어야함(2개는 안됨)
+
+
+        var 사람 = {
+            name : 'park',
+            age : 30,
+            get nextAge(){ // 데이터를 꺼내 쓰는 함수 앞에는 get, 꺼내 쓸때 '사람.nextAge;' 이렇게 쓰면됨 
+                return this.age+1
+            },
+            set setAge(나이){ // 데이터를 변경하는 함수 앞에는 set
+                this.age = parseInt(나이);
+            }
+        }
+        console.log(사람.nextAge()); // 사람.age+1 하면 쉬운데 nextAge()만든이유(함수를 다루어 object데이터를 다루는 이유)? 1. object 자료가 복잡할 때 이득 2. object 자료 수정시 편리
+        사람.setAge('20'); // 문자로 입력해도 parseInt 덕분에 숫자로 변경됨
+        사람.setAge = 25; // 함수앞에 set 적으면 소괄호 안적어도됨
+
+
+
+        //  class에서도 get/set 사용 가능
+        class 클래스사람 {
+            constructor(){
+                this.name = 'park';
+                this.age = 20;
+            }
+            get nextAge(){
+                return this.age + 1
+            }
+            set setAge(나이){
+                this.age = 나이;
+            }
+        }
+
+        var 클래스사람1 = new 클래스사람();
+        
+        
+
+    </script>
+</body>
+</html>
