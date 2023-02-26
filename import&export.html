@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+    <script type="module">
+        
+        // import / export 를 이용한 파일간 모듈식 개발
+
+        // import 가져올거 from '경로' 
+        // library.js에 있는 모든 내용을 가지고 오지 않음. 
+        // 내가 필요한 변수들을 가져옴 
+        // (참고1) export default쓰면 import할때 변수 이름 바꿔도 됨 = export default 할 경우 
+        import aaa from './library.js'; 
+        console.log(aaa);
+
+        import {b,c,d} from './library.js'; // export 키워드만 쓴 경우 변수명 제대로 적어줘야함
+        console.log(b,c,d);
+
+        // export default a와 export b,c 를 동시에 import 하고 싶으면?
+        import a변수작명,{b,c} from './library.js'; // export default를 젤 처음 적어야함
+        console.log(b,c,a변수작명);
+
+        // 변수명이 마음에 안들면 수정 가능 : import {변수명 as 새변수명}from '경로'
+        import {b as newB} from './library.js';
+        console.log(newB);
+
+        // 모든걸 다 import 해오는 * 기호 : import * as 변수들명 from '경로'
+        // 그런데 export default는 디폴트변수,* 라고 앞에 적어줘야함
+        import 디폴트, * as 별명 from './library.js';
+        console.log(디폴트,별명);
+
+
+
+    </script>
+</body>
+</html>
