@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        // ES6방식으로 구현하는 상속기능 : class
+        class 부모 {
+            constructor(파라미터) {
+                this.name = 파라미터;
+                // this.sayHello = function(){ // 함수추가 방법 1. 자식이 직접 함수를 가짐
+                //     console.log('hello');
+            }
+            sayHi() {
+                console.log('hi'); // 함수추가 방법 2. 여기에 쓰면 자식 오브젝트에 추가 안됨. 부모 프로토타입에 추가됨
+            } sayBye() {
+                console.log('bye'); // class안에 함수 여러개 추가 방법 1
+            }
+        }
+        // }
+
+        // 부모.prototype.sayBye = function(){} // class안에 함수 여러개 추가 방법 2
+
+        var 자식 = new 부모('파라미터이름');
+
+        // 부모 프로토타입 출력하는 방법 2가지
+        자식.__proto__; // 얘의 부모 프로토타입(부모유전자)가 출력됨(=부모.prototype)
+        Object.getPrototypeOf(자식); // ()의 부모 prototype을 출력해주세요
+
+        // 객체(object)지향 문법 왜 쓰냐면
+        // object 여러개 만들어 쓰려고 하는 것
+        
+
+    </script>
+
+</body>
+
+</html>
