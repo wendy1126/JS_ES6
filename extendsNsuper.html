@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        // class를 복사하는 extends / super
+
+        // 부모 class와 유사한 class를 하나 더 만들고 싶으면 extends(class 상속)
+
+        class 할아버지 {
+            constructor(name, name2){
+                this.성 = 'kim';
+                this.이름 = name;
+                this.이름2 = name2;
+            }
+            sayHi(){
+                console.log('안녕 난 할아버지');
+            }
+        }
+
+        var 할아버지1 = new 할아버지('만덕');
+
+        class 아버지 extends 할아버지 {
+            constructor(name,name2){ // 부모의 constructor에 있던 파라미터 가져와야함
+                super(name, name2); // 물려받는 class의 constructor라는 뜻
+                this.나이 = 50; // extends 해서 만든 class는 this 그냥 못쓰고, super();다음에 써야함
+            }
+            sayHi(){
+                console.log('안녕 난 아버지');
+                super.sayHi(); // constructor 밖에서 super(); 쓰면 부모 class의 prototype을 의미
+            }
+        }
+
+        var 아버지1 = new 아버지('만수','만봉');
+
+
+
+
+    </script>
+    
+</body>
+</html>
