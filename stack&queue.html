@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+
+        //  웹 브라우저 동작원리
+        // 웹브라우저 = 자바스크립트 실행해주는 애들
+        // stack = 코드 실행해주는 곳임(특징 하나임:한번에 코드하나밖에 실행못함, 그래서 자바스크립트는 보통 single threaded 랭귀지)
+        // 대기실 보내는 코드들 : Ajax 요청코드, 이벤트리스너, setTimeout 등
+        // queue : 대기 끝난 코드들 줄 세움, 여기서 stack으로 옮김, stack이 바빠서, 대신 조건은, stack이 비었을 때만 올려보냄
+        // ex. setTimeout을 0초로 준다면? 초가 몇초든 setTimeout이라서 대기실로 갔다와서 실행됨
+        // for 반복문 천만번 돌리면 오래걸림 = 이런거 자바스크립트로 짜면 안됨, 왜냐면; stack이 비었을 때만 다음 작동이 되는데 10초 걸리는 코드가 stack에 있으면 stack이 비워질때까지 다른작동이 안됨      
+
+
+        // 자바스크립트는 원래 동기적으로 처리됨
+        // 동기적 : 한번에 한줄 실행되는 것
+        // 가끔 비동기적인 처리도 가능(ex. setTimeout, 이벤트리스너, ajax 함수 등)
+
+
+    </script>
+    
+</body>
+</html>
