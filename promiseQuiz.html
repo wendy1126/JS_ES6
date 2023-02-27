@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img id="test" src="https://codingapple1.github.io/kona.jpg">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+
+    <script>
+
+        // Q1. <img> 이미지 로딩 성공시 특정 코드를 실행
+        var 이미지로딩 = new Promise(function (성공, 실패) {
+            var img = document.querySelector('#test');
+            img.addEventListener('load', function () {
+                성공();
+            });
+            img.addEventListener('error', function () {
+                실패();
+            });
+        })
+
+        이미지로딩.then(function () {
+            console.log('로딩성공');
+        }).catch(function () {
+            console.log('로딩실패');
+        })
+
+
+
+        // Q2. Ajax 요청이 성공하면 콘솔창에 ajax요청 텍스트 코드를 실행(제이쿼리)        
+        var 프로미스 = new Promise(function (성공, 실패) {
+            $.get('https://codingapple1.github.io/hello.txt')
+                .done(function (결과) {
+                    성공(결과)
+                });
+        });
+
+
+        // Q3. Promise chaining, ajax요청 성공시 또 다른 곳으로 ajax 요청하기
+
+        프로미스.then(function (결과) {
+            console.log(결과);
+            return ajax해주는함수('https://codingapple1.github.io/hello2.txt')
+        }).then(function (결과) {
+            console.log(결과);
+        })
+
+
+        // 함수로 만들어서 사용가능
+
+        function ajax해주는함수(URL) {
+            return new Promise((성공, 실패) => {
+                $.get(URL)
+                    .done(function (결과) {
+                        성공(결과)
+                    });
+            });
+        }
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
