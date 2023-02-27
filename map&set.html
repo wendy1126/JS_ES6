@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        // Map 자료형 만드는 법 : key, value 형태로 저장
+        // Map 자료형은 자료간의 연관성을 표현하기 위해 사용
+        // object 자료형은 자료 이름으로 글자만 가능하지만, Map 자료형은 다 가능
+        var person = new Map();
+        person.set('name','kim'); // {'name' => 'kim'}
+        person.set('age',20);
+        person.set(100, 'lee') // 자료 이름(key값)으로 다 가능
+        person.set([1,2,3], 'park') // 자료 이름(key값)으로 다 가능
+
+        // Map 자료형에 직접 자료 한꺼번에 집어넣을 땐
+        var person2 = new Map([
+            ['name','kim'],
+            ['age',20]
+        ])
+
+        // Map에서 자료 꺼내는 법
+        person.get('age');
+        // Map에서 자료 삭제하는 법
+        person.delete('age')
+        // Map에서 자료 갯수 세는 법
+        person.size 
+
+        // Map 반복문 돌리기
+        for (var key of person.keys()){
+            console.log(key);
+        }
+
+
+
+        // Set 자료형 : 중복자료를 허용하지 않는 Array 비슷한 것
+        var 출석부 = ['john', 'tom', 'andy', 'tom'];
+        var 출석부2 = new Set(['john', 'tom', 'andy', 'tom']); // {'john', 'tom', 'andy'}
+
+        // set 자료형에 자료 추가하기
+        출석부2.add('sally')
+        // set 자료형에 자료 제거하기
+        출석부2.delete('sally')
+        // set 자료형에 자료 있는지없는지 확인
+        출석부2.has('sally')
+        // set 자료형에 자료 몇개 들어있는지 확인
+        출석부2.size
+
+        // set 자료형 ↔ array 자료형 바꾸기
+        // array의 중복자료를 제거하고 싶으면?
+        출석부 = [...출석부2]; // ['john', 'tom', 'andy']
+
+
+
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>
