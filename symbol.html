@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 심볼 만드는 법 : Symbol('설명아무거나')
+        var 심볼 = Symbol('설명')
+
+        // 심볼의 용도
+        // object 자료형의 비밀스런 key값 저장함
+        var weight = Symbol('내 시크릿 몸무게임');
+        var height = Symbol('내 키스릿 키임');
+
+        var person = {name:'kim' [height]=160}; // 직접 넣어도됨
+        person.weight = 100; 
+        person[weight] = 200; // 반복문에서 출력안되는 이유는 enumerable 한 값이 아니라서
+        person[height] = 160;
+
+        for (var key in person){
+            console.log(person[key]); // 반복문에서 심볼값 출력안됨
+        }
+
+        // import해온 파일 / 라이브러리 쓸 때 거기있던 object에 자료를 추가하고싶다면
+        // 반복문에도 안뜨고, 기존코드 해칠 염려 없으므로 사용함
+
+
+        // 심볼 특징 1 : 설명이 같다고 같은 심볼이 아님
+        var a = Symbol('설명1');
+        var b = Symbol('설명1');
+        a===b // false
+
+        // 전역 변수같은 전역 심볼? Symbol.for()로 만드는 전역 심볼
+        var c = Symbol.for('설명2'); 
+        var d = Symbol.for('설명2'); // 같은 '설명2'를 가지고 있는 심볼이 이미 있으면 기존 심볼을 복붙해줌. 즉, var d = c; 랑 같음
+        c===d // true
+
+
+        // 기본 내장 Symbol들
+        var 어레이 = [2,3,4];
+        어레이[Symbol.iterator]; // 몰라도됨
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>
