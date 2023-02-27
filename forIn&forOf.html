@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        // 반복문 : 1. 코드 여러번 실행할 때, 2. array, object에서 자료 꺼내쓸때
+        // for 반복문
+        // forEach()반복문 : array 전용
+        // for in 반복문 : Object 전용
+        // for of 반복문 : iterable 전용
+
+        // for(let i = 0; i<3; i++){} // for 반복문
+        // [1,2,3].forEach(); // forEach 반복문
+
+        class 부모 {
+
+        }
+        부모.prototype.name = 'park';
+
+        // var 반복할오브젝트 = {name:'kim', age:30};
+        var 반복할오브젝트 = new 부모();
+
+        // Object.getOwnPropertyDescriptor(반복할오브젝트,'name'); // enumerable 확인해볼수있는 코드
+
+
+        // for in 반복문 특징1 : enumerable한 것(셀수있는지여부 true)만 반복해줌
+        // 일반 자료들은 항상 enumerable이 true가 기본값
+        // for in 반복문 특징2 : 부모의 prototype도 반복해줌
+        // for in 반복문 특징3 : Object 자료형에만 씀(array에는 for혹은forEach() 반복문 사용)
+
+        for (var key in 반복할오브젝트) {
+            if (반복할오브젝트.hasOwnProperty(key)) { // 내가 직접 가지고 있는 값만 반복시키고 싶을때 사용(부모 프로토타입 제외)
+                console.log(반복할오브젝트[key]);
+            }
+        }
+
+
+        // for of 반복문 특징1 : array, 문자, arguments, NodeList, Map, Set 반복문에서 사용
+        // for of 반복문 특징2 : iterable한 자료형에만 사용가능
+        var 어레이 = [2,3,4,5];
+        for(var 자료 of 어레이){
+            console.log(자료);
+        }
+        어레이[Symbol.iterator](); // 내부 데이터 출력을 도와주는 함수, iterable한 자료인지 확인가능
+
+
+        for(var 문자 of 'ㄴㅇㄹㄴㅇㄹ'){
+            console.log(문자);
+        }
+
+    </script>
+
+</body>
+
+</html>
