@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // ?. / ?? 연산자 (optional chaining)
+
+        // 여러문자, 숫자를 한 변수에 저장하려면
+        var user = {
+            name : 'kim',
+            age : 20
+        }
+        console.log(user.name);
+        console.log(user?.age); 
+        // user.name 과 같은 신문법 ?. optional chaining
+        // 왼쪽(user)이 비어있으면, 오른쪽(age) 안해줌
+        // 즉, 왼쪽이 null, undefined면 오류 안찍어주고 undefined 남겨줌
+        // 중첩된 object 자료에서(점 두개 이상) 자료 뽑을 때 reference 에러없이 안전하게 뽑을 수 있음
+        // 에러를 해결해주는 문법이 아니라 에러를 잠깐 감추는 문법임
+
+
+        var user2 = {
+            name : 'kim',
+            // age : {value:30}
+        }
+        console.log(user2.age?.value);
+
+        console.log(document.querySelector('#a')?.innerHTML); 
+
+
+
+        // ?? nullish coalescing 연산자
+        // 왼쪽이 undefined,null 이면 오른쪽 보여주세요
+        console.log(undefined ?? '으잉');
+
+        // 데이터가 늦게 도착하기 전에 띄울 수 있음
+        var user3;
+        console.log(user3 ?? '로딩중');
+
+
+
+
+
+    </script>
+</body>
+</html>
