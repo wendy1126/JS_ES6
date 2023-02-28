@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="mordor"></div>
+    <custom-input></custom-input>
+    <label>나는 안빨개지지롱</label>
+
+    <template id="template1"> <!--HTML 임시보관함-->
+        <!--<div>템플릿 안의 HTML태그들은 페이지에 렌더링 되지않음</div>
+        <div>그래서 Shadow DOM 안의 긴 HTML들을 템플릿태그 안에 넣어서 보관함</div>-->
+        <label>이메일을 입력하쇼</label><input>
+        <style>label{color:red}</style>
+
+    </template> 
+
+
+    <script>
+
+        // shadow DOM 만드는 법
+        document.querySelector('#mordor').attachShadow({mode:'open'});
+        document.querySelector('#mordor').shadowRoot.innerHTML = '<p>심연에서왔도다</p>'
+
+        // Web component에 스타일 넣고싶으면? shadow DOM 쓰면 좋음, shadow DOM에 넣은것들은 외부에 영향 없음
+        class 클래스 extends HTMLElement {
+            connectedCallback() {
+                this.attachShadow({mode:'open'});
+                this.shadowRoot.append(template1.content.cloneNode(true))
+
+                // shadow DOM에 이벤트리스너도 부착가능
+                let el = this.shadowRoot.querySelector('label');
+                el.addEventListener('click',function(){
+                    console.log('클릭함');
+                })
+            }
+        }
+
+        customElements.define('custom-input', 클래스);
+
+
+
+    </script>
+    
+</body>
+</html>
